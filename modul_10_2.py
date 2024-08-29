@@ -9,15 +9,11 @@ class Knight(Thread):
 
     def run(self):
         print(f'{self.name}, на нас напали!')
-        day = 0
-        namber_of_enemies = 100
-        while True:
+        day = 1
+        for namber_of_enemies in range(100 - self.power, 0, -self.power):
             sleep(1.0)
-            namber_of_enemies -= self.power
-            day += 1
-            if namber_of_enemies <= 0:
-                break
             print(f'{self.name} сражается {day}  день(дня)..., осталось {namber_of_enemies} воинов.')
+            day += 1
         print(f'{self.name} одержал победу спустя {day} дней(дня)!')
 
 first_knight = Knight('Sir Lancelot', 10)
